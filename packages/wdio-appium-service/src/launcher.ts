@@ -192,7 +192,6 @@ export default class AppiumLauncher implements Services.ServiceInstance {
             process.stdout.on('data', (data) => {
                 outputBuffer += data.toString()
                 if (outputBuffer.includes('Appium REST http interface listener started')) {
-                    outputBuffer = ''
                     log.info(`Appium started with ID: ${process.pid}`)
                     clearTimeout(timeoutId)
                     resolve(process)
